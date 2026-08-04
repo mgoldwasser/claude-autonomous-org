@@ -36,15 +36,41 @@ USER → Chief of Staff (Fable) → CEO (Fable)
 
 ## Install
 
+From GitHub (replace `OWNER` with the repo owner):
+
 ```
 /plugin marketplace add OWNER/claude-autonomous-org
 /plugin install autonomous-org
 ```
 
-(Or from a local clone: `claude plugin marketplace add /path/to/claude-autonomous-org`
-then install. Replace `OWNER` with the GitHub owner once published.)
+From a local clone:
 
-Then, inside Claude Code, run the guided onboarding:
+```bash
+claude plugin marketplace add /path/to/claude-autonomous-org
+claude plugin install autonomous-org@autonomous-org-marketplace
+```
+
+### Try it before making it your default
+
+Installing the plugin changes nothing about your normal sessions — it only
+makes the agents, hook, and skills available. The routing hook governs only
+this plugin's 14 agent names; your other agents, skills, and plugins pass
+through untouched.
+
+To use the organization on demand without touching settings:
+
+```bash
+claude --agent chief-of-staff        # one session run by the org
+```
+
+or spawn `chief-of-staff` from any session via the Agent tool. Run
+`/org-validate` while trying it. Adopt it as your default (step below) only
+once you're satisfied — and consider `--scope project` installation if you
+want the org in one repo only.
+
+### Make it the default (optional)
+
+Inside Claude Code, run the guided onboarding:
 
 ```
 /org-install
