@@ -126,6 +126,27 @@ Test the deterministic core:
 python3 tests/test_routing_hook.py
 ```
 
+## Coexistence with other plugins
+
+This plugin deliberately does **not** wrap or manage other plugins — that
+would couple it to their release cycles and add context for no capability.
+Instead it follows a coexistence contract:
+
+- **Output-style plugins** (terse modes, formatting, statuslines): fully
+  compatible. They shape user-facing text, which is the Chief of Staff's
+  layer; internal agent traffic is unaffected.
+- **Process-skill plugins** (workflow methodologies, TDD guides, review
+  checklists): compatible when they yield inside subagents (most do — check
+  for a "skip if dispatched as a subagent" clause). Org specialists run on
+  their own role prompts; session-level skill mandates apply to the main
+  session only.
+- **Competing orchestrators** (other multi-agent/delegation plugins): pick
+  one. Two delegation hierarchies in one session fight for the same
+  decisions. `/org-install` flags these during its conflict scan.
+- **Everything else** (domain skills, MCP servers, LSPs): untouched. The
+  routing hook governs only this plugin's 14 agent names; all other agents
+  and tools pass through.
+
 ## Known limitations
 
 - **Fable→Opus fallback**: current Claude Code documents no per-agent
