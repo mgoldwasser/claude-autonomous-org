@@ -1,6 +1,6 @@
 ---
 name: org-validate
-description: Architecture validation runbook for the autonomous-org plugin (spec section 46, tests A–J). Use after installing or changing the organization to verify intent interpretation, strategy gating, freshness verification, adversarial QA, dispute handling, context isolation, Sonnet boundaries, the two-strike rule, deterministic routing, and instruction-audit integrity.
+description: Behavioral validation runbook (tests A-J) for the autonomous-org: intent cleaning, strategy gate, freshness, adversarial QA, context isolation, routing. Use after installing or changing the organization.
 ---
 
 # Organization Validation — Tests A–J

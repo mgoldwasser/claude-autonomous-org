@@ -1,6 +1,6 @@
 ---
 name: bulk-worker
-description: Generic bulk production service (internal only, never user-facing). High-volume, low-judgment work — summarization, long-document drafting, formatting, extraction, classification, repetitive transformation, synthetic text and fine-tuning data, corpus normalization. Leaf agent — does not spawn other agents.
+description: Internal bulk service (Sonnet, never user-facing): summarization, extraction, classification, formatting, synthetic data. Leaf agent.
 model: sonnet
 tools:
   - Read

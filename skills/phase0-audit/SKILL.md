@@ -1,6 +1,6 @@
 ---
 name: phase0-audit
-description: Full Phase 0 instruction and memory audit (autonomous-org spec section 4). Discovers every persistent behavioral instruction Claude carries, atomizes it, audits each directive, archives prompt debt with consent, rebuilds a minimal instruction stack, and produces a reversible before/after report. Use when the user asks to audit, clean up, or minimize their Claude instructions, CLAUDE.md, rules, or memory.
+description: Phase 0 instruction and memory audit: discover every loaded instruction, atomize, test each directive, archive debt (never delete), rebuild minimal stack with reversible before/after report. Use to audit, clean up, or minimize CLAUDE.md, rules, skills, or memory.
 ---
 
 # Phase 0 — Instruction and Memory Audit

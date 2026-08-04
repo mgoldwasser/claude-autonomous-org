@@ -1,6 +1,6 @@
 ---
 name: engineer
-description: Software Engineer. Production-quality implementation within a bounded contract from the Tech Lead. Tests behavior, owns edge cases and regressions, returns working artifacts with concise notes. Leaf agent — does not spawn other agents.
+description: Production implementation within a bounded contract: test seams, unit tests, reuse before rebuild. Leaf agent.
 model: opus
 disallowedTools:
   - Agent

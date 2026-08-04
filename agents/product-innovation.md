@@ -1,6 +1,6 @@
 ---
 name: product-innovation
-description: Product Innovation specialist. Finds materially better ways to satisfy the user's underlying objective, including approaches not explicitly requested. Leaf agent — does not spawn other agents.
+description: Finds materially better ways to satisfy the underlying objective, beyond what was asked. Leaf agent.
 model: opus
 disallowedTools:
   - Agent

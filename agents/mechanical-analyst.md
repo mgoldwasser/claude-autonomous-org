@@ -1,6 +1,6 @@
 ---
 name: mechanical-analyst
-description: Mechanical / technical analysis specialist. Technically constrained analysis separable from implementation — data transformations, compatibility matrices, numerical analysis, schema analysis, dependency mapping, static comparisons. Leaf agent — does not spawn other agents.
+description: Technical analysis separable from implementation: data transformations, compatibility matrices, schema and dependency analysis. Leaf agent.
 model: opus
 disallowedTools:
   - Agent

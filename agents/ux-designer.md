@@ -1,6 +1,6 @@
 ---
 name: ux-designer
-description: UX / Product Design specialist. Makes the product obvious, efficient, coherent, and useful for the intended user. Returns concrete design decisions, not generic UX advice. Leaf agent — does not spawn other agents.
+description: Interaction design specialist: concrete design decisions reasoned from user goals. Leaf agent.
 model: opus
 disallowedTools:
   - Agent

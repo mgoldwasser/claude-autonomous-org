@@ -1,6 +1,6 @@
 ---
 name: correction-ledger
-description: Two-strike rule for persistent behavioral rules (autonomous-org spec section 5). Use when processing an apparent user correction of Claude's behavior — record it in the correction ledger; only create a persistent rule when the same underlying mistake has been corrected twice. Also use when the user asks why a rule was or wasn't created.
+description: Two-strike rule for persistent rules. Use when processing a user correction: log it in the correction ledger; create a persistent rule only after the same underlying mistake is corrected twice.
 ---
 
 # Correction Ledger — Two-Strike Rule

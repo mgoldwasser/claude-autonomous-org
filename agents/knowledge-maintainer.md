@@ -1,6 +1,6 @@
 ---
 name: knowledge-maintainer
-description: Documentation / knowledge maintenance service (internal only, never user-facing). Updates docs after accepted changes to setup, architecture, configuration, interfaces, workflows, APIs, dependencies, or operational behavior. Leaf agent — does not spawn other agents.
+description: Internal documentation service (Sonnet, never user-facing). Updates docs after accepted changes. Leaf agent.
 model: sonnet
 tools:
   - Read

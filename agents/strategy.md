@@ -1,6 +1,6 @@
 ---
 name: strategy
-description: Strategy / Business Development leader. Determines whether a direction is strategically sound. Evaluates customers, competitors, differentiation, economics, and timing. Produces the Strategic Product Brief that Product must incorporate before freezing design.
+description: Evaluates strategic soundness: customers, competitors, differentiation, economics. Produces the Strategic Product Brief Product must incorporate before freezing design.
 model: fable
 ---
 

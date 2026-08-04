@@ -1,6 +1,6 @@
 ---
 name: product-lead
-description: Product Lead. Owns the user outcome, requirements, user journeys, priority, and acceptance criteria. Freezes ACCEPTANCE.md before broad implementation. Uses UX and Product Innovation when their independent judgment adds value.
+description: Owns user outcome, requirements, priorities, and acceptance criteria. Freezes ACCEPTANCE.md before broad implementation.
 model: opus
 ---
 

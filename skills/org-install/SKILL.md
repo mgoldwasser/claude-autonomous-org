@@ -1,6 +1,6 @@
 ---
 name: org-install
-description: Guided onboarding for the autonomous-org plugin. Scans the user's existing Claude Code configuration for conflicts with the organization (agents, skills, hooks, CLAUDE.md rules, settings), proposes per-item actions, archives only with explicit user consent, then applies settings and validates. Use when the user asks to install, set up, or onboard the autonomous organization, or reports the org fighting other agents/skills.
+description: Guided onboarding after installing the autonomous-org plugin. Scans existing agents, skills, hooks, CLAUDE.md, and settings for conflicts; archives only with explicit consent. Use for install, setup, or when the org fights other plugins.
 disable-model-invocation: false
 ---
 
