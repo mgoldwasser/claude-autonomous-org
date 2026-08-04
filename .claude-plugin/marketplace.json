@@ -1,0 +1,13 @@
+{
+  "name": "autonomous-org-marketplace",
+  "owner": {
+    "name": "autonomous-org contributors"
+  },
+  "plugins": [
+    {
+      "name": "autonomous-org",
+      "source": "./",
+      "description": "Claude Code as a small autonomous organization: Fable leadership, Opus specialists, Sonnet internal services, deterministic agent routing, independent quality audit."
+    }
+  ]
+}

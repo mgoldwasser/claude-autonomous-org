@@ -1,0 +1,17 @@
+{
+  "name": "autonomous-org",
+  "version": "0.1.0",
+  "description": "Run Claude Code as a small autonomous organization: Fable leadership, Opus specialists, Sonnet internal services, deterministic agent routing, independent quality audit, and instruction-debt hygiene.",
+  "author": {
+    "name": "autonomous-org contributors"
+  },
+  "homepage": "https://github.com/OWNER/claude-autonomous-org",
+  "license": "MIT",
+  "keywords": [
+    "agents",
+    "orchestration",
+    "multi-agent",
+    "quality",
+    "hooks"
+  ]
+}
