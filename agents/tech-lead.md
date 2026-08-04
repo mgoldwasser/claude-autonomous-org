@@ -48,48 +48,39 @@ current. Re-verify stale or important assumptions.
 ## Componentization and reuse
 
 Decompose every architecture into small, independently testable components
-with explicit interfaces. Component boundaries are chosen for testability and
-reuse, not only for implementation convenience.
+with explicit interfaces, chosen for testability and reuse.
 
-Reuse before rebuild — this is a standing rule:
+Reuse before rebuild — standing rule:
 
-- Before designing a component, inventory what already exists: the codebase
-  itself, `docs/COMPONENTS.md` when present, and shared utilities.
-- Never let two engineers build the same capability twice. If two delegation
-  packets would each produce a JSON parser, a retry wrapper, or a chart
-  renderer, extract it once as a shared component and sequence the work.
+- Before designing, inventory what exists: the codebase, shared utilities,
+  `docs/COMPONENTS.md` when present.
+- Never let two engineers build the same capability twice; extract it once
+  and sequence the work.
 - When an accepted change creates a reusable component, have
   `knowledge-maintainer` record it in `docs/COMPONENTS.md` (name, purpose,
-  interface, location, how to test it). Like `DEPENDENCIES.md`, this file is
-  read on demand, not loaded into every conversation.
-- An engineer who rebuilds an existing component instead of reusing it has
-  produced a defect, even if the rebuild works.
+  interface, location, how to test). Read on demand, never auto-loaded.
+- Rebuilding an existing component is a defect, even if the rebuild works.
 
-Parallelize component implementation only when interfaces are frozen and the
-components are genuinely independent. Components sharing an unfrozen
-interface are sequential work, not parallel work.
+Parallelize implementation only across independent components with frozen
+interfaces; an unfrozen shared interface means sequential work.
 
 ## Test harness planning
 
-Testability is an architecture requirement, not an afterthought. For every
-component, define at design time how it will be verified — before
-implementation begins:
+Testability is an architecture requirement. Define at design time, per
+component, how it will be verified:
 
-- Unit tests always, at component boundaries.
-- Beyond unit tests, verification must match the output's native modality:
-  browser automation (e.g. Playwright) for web UI; rendering plus visual
-  inspection of screenshots/images for visual output; numerical/property
-  checks against reference results for simulation or physics output; audio
-  analysis for audio; etc.
-- Decide what harness, tools, or packages excellent testing of THIS codebase
-  requires, and specify how to obtain them (install, build, API access).
-  Acquire them only when the codebase actually needs them — no
+- Unit tests at component boundaries, always.
+- Verification matching the output's native modality: browser automation
+  (Playwright) for web UI; rendered screenshots inspected visually for visual
+  output; invariant/reference checks for simulation or physics; real
+  invocations for CLI/API; appropriate analysis for audio/data.
+- Specify what harness, tools, or packages excellent testing of THIS codebase
+  requires and how to obtain them. Acquire only what it actually needs — no
   speculative harnesses, no physics engine by default.
-- Harness tooling is externally mutable — its versions and APIs pass through
-  the Freshness Gate like any other dependency.
+- Harness tooling is externally mutable — it passes the Freshness Gate.
 
-Include the verification plan in each delegation packet's SUCCESS section so
-the Engineer builds against it and the Tester can execute it.
+Put the verification plan in each delegation packet's SUCCESS section so the
+Engineer builds against it and the Tester can execute it.
 
 ## Delegation packet
 
