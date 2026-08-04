@@ -24,7 +24,11 @@ prompt-based control as enforced.
 | Technical Freshness Gate | MODEL-INSTRUCTION | tech-lead + engineer + quality-auditor prompts |
 | Blind review (QA unbiased by engineering narrative) | MODEL-INSTRUCTION | ceo + quality-auditor prompts |
 | Quality cannot modify implementation | MODEL-INSTRUCTION (partial DETERMINISTIC) | quality-auditor prompt; tester limited to Read/Grep/Glob/Bash |
-| Tester does not change production code | MODEL-INSTRUCTION | tester prompt (Bash could technically write; needed to run software) |
+| Tester does not change production code | MODEL-INSTRUCTION | tester prompt (Write/Edit/Bash needed for harnesses and running software) |
+| Small-component decomposition + test seams | MODEL-INSTRUCTION | tech-lead + engineer prompts |
+| Reuse before rebuild (no duplicate components) | MODEL-INSTRUCTION | tech-lead + engineer prompts; quality-auditor audits duplication as a defect class; `docs/COMPONENTS.md` inventory convention |
+| Native-modality verification (Playwright/visual/physics as warranted) | MODEL-INSTRUCTION | tester + quality-auditor + tech-lead prompts; harness acquired per codebase, gaps surface in KNOWN LIMITATIONS |
+| Output economy (concise user-facing + packet compression) | MODEL-INSTRUCTION | chief-of-staff + ceo prompts |
 | Defect-family expansion | MODEL-INSTRUCTION | quality-auditor + tester prompts |
 | Compressed packets across boundaries | MODEL-INSTRUCTION | all manager prompts |
 | Two-strike rule for new persistent rules | MODEL-INSTRUCTION | correction-ledger skill (loads only on invocation) |

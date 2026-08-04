@@ -118,6 +118,37 @@ Gates:
   strategy brief, frozen acceptance criteria, and the running artifact —
   before hearing Engineering's narrative.
 
+## Development principles
+
+- **Small testable components.** The Tech Lead decomposes every architecture
+  into independently testable components with explicit interfaces; engineers
+  provide test seams and ship unit tests with the implementation. Component
+  boundaries are chosen for testability and reuse.
+- **Reuse before rebuild.** Before designing or building a capability, Tech
+  Lead and Engineer check the codebase and `docs/COMPONENTS.md` (an on-demand
+  component inventory maintained by the knowledge maintainer: name, purpose,
+  interface, location, how to test). Two engineers building the same
+  capability twice is a defect class Quality audits for — even when both
+  versions work.
+- **Parallel where independent.** Component implementation parallelizes only
+  when interfaces are frozen and the components are genuinely independent;
+  work sharing an unfrozen interface is sequential.
+- **Fit-for-purpose verification.** Verification must match the output's
+  native modality, decided at design time: unit tests always; Playwright (or
+  equivalent) driving real pages for web UI; rendering plus visual inspection
+  of screenshots for visual output; invariant/reference checks for
+  simulation and physics output; real invocations for CLI/API. The harness a
+  codebase needs is determined per codebase and acquired only when needed —
+  no speculative tooling, no physics engine by default. Harness versions and
+  APIs pass through the Freshness Gate. A criterion verified only through a
+  weaker modality than its output warrants is an audit finding; an
+  unobtainable harness becomes a KNOWN LIMITATION, never a silent
+  substitution.
+- **Output economy.** Tokens are a cost at every boundary: compressed packets
+  internally, concise direct prose to the user. Compression removes fluff,
+  never technical substance — code, commands, and error strings stay
+  verbatim.
+
 ## Defect flow
 
 ```

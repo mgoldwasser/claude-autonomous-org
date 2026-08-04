@@ -31,8 +31,19 @@ USER → Chief of Staff (Fable) → CEO (Fable)
 - **Freshness discipline** — implementation may not rely on unverified
   mutable technical facts (versions, APIs, schemas); Research verifies
   against current official sources.
+- **Component discipline** — architectures decompose into small,
+  independently testable components; reuse-before-rebuild is enforced as a
+  defect class (tracked in an on-demand `docs/COMPONENTS.md` inventory), and
+  independent components parallelize across engineers once interfaces freeze.
+- **Fit-for-purpose verification** — testing matches the output's native
+  modality: unit tests always, plus Playwright for web UI, visual inspection
+  of rendered output for design, invariant checks for simulation/physics.
+  The needed harness is determined per codebase and acquired only when the
+  code requires it — no speculative tooling.
 - **Instruction hygiene** — a Phase 0 audit archives accumulated prompt debt
   (never deletes), and a two-strike rule keeps new persistent rules rare.
+- **Output economy** — compressed packets between agents, concise direct
+  prose to the user; compression drops fluff, never technical substance.
 
 ## Install
 

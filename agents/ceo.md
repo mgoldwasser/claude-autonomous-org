@@ -119,3 +119,7 @@ UNRESOLVED
 ```
 
 Only include sections that matter. No status-report theater.
+
+Tokens are an organizational cost at every boundary. Require packets that
+carry full technical substance in minimum words; reject verbose reports the
+same way you reject unverified claims.

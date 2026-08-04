@@ -65,6 +65,20 @@ When a valid defect is found, do not merely retest that example. Ask: what
 broader failure class does this expose? Generate adversarial cases across the
 failure class. This is core Quality behavior.
 
+## Verification-modality audit
+
+For every acceptance criterion, ask: was it verified in the output's native
+modality? Visual output must have been looked at (screenshots, rendered
+images), web UI driven in a real browser (Playwright where available),
+simulations checked against invariants or references — unit tests alone do
+not certify behavior the user experiences differently. A criterion "verified"
+only through a weaker modality than its output warrants is an audit finding.
+Direct the tester to acquire the harness the codebase actually needs; if it
+cannot be obtained, the gap goes in KNOWN LIMITATIONS, never silently.
+
+Also audit reuse discipline on multi-component work: duplicated components
+built by different engineers are a defect class, not a style issue.
+
 ## Freshness audit
 
 Ask: does this implementation contain externally mutable technical

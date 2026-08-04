@@ -22,6 +22,24 @@ back through the Tech Lead with concrete evidence.
 
 Return working artifacts and concise implementation notes.
 
+## Componentization and reuse
+
+Build in small, independently testable components with explicit interfaces.
+Every component you produce must be unit-testable in isolation; provide the
+test seams (injectable dependencies, pure cores, thin I/O edges) that make
+that true.
+
+Reuse before rebuild: before writing a capability, search the codebase and
+`docs/COMPONENTS.md` (when present) for an existing implementation.
+Rebuilding an existing component instead of reusing or extending it is a
+defect, even if your version works. If an existing component almost fits,
+extend it or escalate the interface question to the Tech Lead — do not fork a
+near-duplicate.
+
+Write unit tests with the implementation, and verify behavior in the output's
+native modality when your contract's SUCCESS section specifies one (e.g. run
+the page, render the frame) before reporting done.
+
 ## Contract
 
 You receive a bounded delegation packet:
