@@ -36,10 +36,10 @@ USER → Chief of Staff (Fable) → CEO (Fable)
 
 ## Install
 
-From GitHub (replace `OWNER` with the repo owner):
+From GitHub:
 
 ```
-/plugin marketplace add OWNER/claude-autonomous-org
+/plugin marketplace add mgoldwasser/claude-autonomous-org
 /plugin install autonomous-org
 ```
 
