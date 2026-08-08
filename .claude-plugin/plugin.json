@@ -1,6 +1,6 @@
 {
   "name": "autonomous-org",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Run Claude Code as a small autonomous organization: Fable leadership, Opus specialists, Sonnet internal services, deterministic agent routing, independent quality audit, and instruction-debt hygiene.",
   "author": {
     "name": "autonomous-org contributors"
