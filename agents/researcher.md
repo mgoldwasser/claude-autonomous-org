@@ -1,7 +1,7 @@
 ---
 name: researcher
 description: Gathers current evidence: technical facts from official sources, market evidence for Strategy. Returns compressed fact packets. Leaf agent.
-model: opus
+model: claude-opus-5
 disallowedTools:
   - Agent
 ---

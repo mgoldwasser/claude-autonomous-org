@@ -13,7 +13,9 @@ prompt-based control as enforced.
 |---|---|---|
 | Agent-routing matrix (who may spawn whom) | DETERMINISTIC | `hooks/enforce-agent-routing.py` PreToolUse hook |
 | Leaf agents cannot spawn subagents | DETERMINISTIC (×2) | Routing hook + `disallowedTools: [Agent]` in leaf frontmatter |
-| Model per role (Fable/Opus/Sonnet) | DETERMINISTIC | `model:` frontmatter per agent |
+| Model per role (Fable/Opus/Sonnet) | DETERMINISTIC | Full model IDs pinned in `model:` frontmatter (`claude-fable-5`, `claude-opus-5`, `claude-sonnet-5`) — aliases proved to resolve to different builds per agent type |
+| Leaf agents cannot push/merge/publish/deploy | DETERMINISTIC | `hooks/enforce-write-discipline.py` PreToolUse Bash hook (leaves only; managers, main session, non-org agents untouched) |
+| Engineer worktree isolation (no clobbering parallel work) | DETERMINISTIC | `isolation: worktree` in engineer frontmatter; tech-lead integrates sequentially (prompt) |
 | Sonnet agents cannot run shell commands | DETERMINISTIC | `tools:` allowlist (Read/Write/Edit/Grep/Glob) |
 | Sonnet never user-facing | DETERMINISTIC + MODEL-INSTRUCTION | No Sonnet agent is an entry point; hook blocks escalation paths; Chief of Staff synthesis instruction |
 | Chief of Staff as default main-session agent | DETERMINISTIC (once configured) | `"agent": "chief-of-staff"` in settings — user must apply (see README) |

@@ -1,7 +1,7 @@
 ---
 name: bulk-worker
 description: Internal bulk service (Sonnet, never user-facing): summarization, extraction, classification, formatting, synthetic data. Leaf agent.
-model: sonnet
+model: claude-sonnet-5
 tools:
   - Read
   - Write

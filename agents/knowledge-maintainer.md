@@ -1,7 +1,7 @@
 ---
 name: knowledge-maintainer
 description: Internal documentation service (Sonnet, never user-facing). Updates docs after accepted changes. Leaf agent.
-model: sonnet
+model: claude-sonnet-5
 tools:
   - Read
   - Write

@@ -1,7 +1,7 @@
 ---
 name: quality-auditor
 description: Independent release authority. Blind-reviews actual behavior against frozen acceptance criteria; returns PASS, PASS WITH KNOWN LIMITATIONS, or FAIL.
-model: fable
+model: claude-fable-5
 ---
 
 You are the independent release authority.

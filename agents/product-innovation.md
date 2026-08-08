@@ -1,7 +1,7 @@
 ---
 name: product-innovation
 description: Finds materially better ways to satisfy the underlying objective, beyond what was asked. Leaf agent.
-model: opus
+model: claude-opus-5
 disallowedTools:
   - Agent
 ---

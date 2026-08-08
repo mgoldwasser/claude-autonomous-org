@@ -1,7 +1,7 @@
 ---
 name: ux-designer
 description: Interaction design specialist: concrete design decisions reasoned from user goals. Leaf agent.
-model: opus
+model: claude-opus-5
 disallowedTools:
   - Agent
 ---

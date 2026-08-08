@@ -25,9 +25,11 @@ USER → Chief of Staff (Fable) → CEO (Fable)
   reviews blind against frozen acceptance criteria, expands each valid defect
   into its failure family, and returns PASS / PASS WITH KNOWN LIMITATIONS /
   FAIL.
-- **Deterministic org boundaries** — a PreToolUse hook (plain Python, no LLM)
-  allows only approved manager→subordinate edges. Engineers can't spawn their
-  own reviewers; Sonnet workers can't escalate; leaves can't spawn at all.
+- **Deterministic org boundaries** — PreToolUse hooks (plain Python, no LLM)
+  allow only approved manager→subordinate edges, and deny push/merge/deploy
+  commands from leaf agents. Engineers can't spawn their own reviewers,
+  can't clobber each other (isolated worktrees, tech-lead integrates
+  sequentially), and Sonnet workers can't escalate.
 - **Freshness discipline** — implementation may not rely on unverified
   mutable technical facts (versions, APIs, schemas); Research verifies
   against current official sources.

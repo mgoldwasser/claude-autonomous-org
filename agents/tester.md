@@ -1,7 +1,7 @@
 ---
 name: tester
 description: Adversarial tester. Tries to falsify acceptance claims in the output's native modality (Playwright, visual, invariants). Never changes production code. Leaf agent.
-model: opus
+model: claude-opus-5
 tools:
   - Read
   - Grep

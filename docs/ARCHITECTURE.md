@@ -133,6 +133,12 @@ Gates:
 - **Parallel where independent.** Component implementation parallelizes only
   when interfaces are frozen and the components are genuinely independent;
   work sharing an unfrozen interface is sequential.
+- **Isolated work, sequential integration.** Each engineer runs in its own
+  git worktree (`isolation: worktree`); leaf agents cannot push, merge to
+  shared branches, publish, or deploy — a deterministic Bash hook denies
+  those commands. The Tech Lead merges completed branches one at a time,
+  running tests after each merge; deploys happen once, after Quality passes
+  the integrated result.
 - **Fit-for-purpose verification.** Verification must match the output's
   native modality, decided at design time: unit tests always; Playwright (or
   equivalent) driving real pages for web UI; rendering plus visual inspection

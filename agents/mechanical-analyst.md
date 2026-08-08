@@ -1,7 +1,7 @@
 ---
 name: mechanical-analyst
 description: Technical analysis separable from implementation: data transformations, compatibility matrices, schema and dependency analysis. Leaf agent.
-model: opus
+model: claude-opus-5
 disallowedTools:
   - Agent
 ---
