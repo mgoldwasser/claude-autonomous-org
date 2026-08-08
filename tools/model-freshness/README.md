@@ -10,7 +10,7 @@ determinism; this keeps the pins (and everything else) current.
 |---|---|
 | `refresh_models.py` | Daily job: fetch latest model list, write `~/.claude/latest-models.json`, auto-update this plugin's agent pins (commit + push + reinstall) and `settings.json` |
 | `model_proxy.py` | Local `ANTHROPIC_BASE_URL` proxy (port 8399): rewrites tier aliases and stale model IDs in every outgoing request to the current latest — stale models become uncallable |
-| `check_freshness.sh` | Claude Code `SessionStart` hook: background-refresh if the list is >24h old |
+| `check_freshness.sh` | Claude Code hook: background-refresh if the list is >24h old. Register on **both** `SessionStart` and `UserPromptSubmit` — the latter keeps week-long sessions fresh (it fires per message; ~5ms no-op when the list is current) |
 | `com.goldy.model-*.plist` | macOS launchd units (daily refresh + keep-alive proxy) — rename/adjust paths for your user |
 
 ## Model-list sources (in order)
@@ -37,10 +37,26 @@ Then add to `~/.claude/settings.json`:
 ```json
 {
   "env": { "ANTHROPIC_BASE_URL": "http://127.0.0.1:8399" },
-  "hooks": { "SessionStart": [{ "hooks": [{ "type": "command",
-    "command": "~/.claude/model-freshness/check_freshness.sh" }] }] }
+  "hooks": {
+    "SessionStart": [{ "hooks": [{ "type": "command",
+      "command": "~/.claude/model-freshness/check_freshness.sh" }] }],
+    "UserPromptSubmit": [{ "hooks": [{ "type": "command",
+      "command": "~/.claude/model-freshness/check_freshness.sh" }] }]
+  }
 }
 ```
+
+## Long-running sessions
+
+The proxy re-reads `latest-models.json` per request (mtime check), so sessions
+spanning days pick up refreshed rules without restarting. The
+`UserPromptSubmit` hook guarantees the list itself refreshes even when no new
+session starts for a week. One consequence to know: if a new model ships
+mid-session, the proxy starts rewriting that session's subsequent requests to
+it — a mid-conversation model upgrade. That costs one cold prompt-cache
+rebuild and can shift behavior mid-task. If you want a session to finish on
+the model it started with, add the outgoing model to `allow.json` for the
+duration.
 
 ## Caveats
 
