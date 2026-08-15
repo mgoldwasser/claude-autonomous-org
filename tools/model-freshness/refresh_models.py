@@ -6,7 +6,13 @@
 3. Write ~/.claude/latest-models.json (consumed by model_proxy.py).
 4. Sync pinned IDs in the autonomous-org repo agents + ~/.claude/settings.json;
    on change: bump plugin version, commit, push, update local plugin install.
+5. Pin tier aliases and stale IDs in ALL installed plugin agent frontmatter
+   (~/.claude/plugins/cache). Replaces the enforcement proxy as default path:
+   ANTHROPIC_BASE_URL breaks Remote Control (Claude Code >= 2.1.196 disables
+   it for any non-api.anthropic.com base URL), so the proxy is opt-in only.
 """
+
+import glob
 
 import datetime
 import json
@@ -157,6 +163,28 @@ def main():
         subprocess.run(["claude", "plugin", "update", "autonomous-org@autonomous-org-marketplace"],
                        capture_output=True)
         log(f"org plugin bumped to {d['version']} and reinstalled")
+
+    # --- Pin aliases + stale IDs in all installed plugin agents ---
+    # Plugin updates overwrite the cache; this re-applies daily.
+    pin_re = re.compile(r"^model: (claude-[a-z0-9.-]+|opus|sonnet|fable|haiku)\s*$", re.M)
+    for path in glob.glob(os.path.join(HOME, ".claude", "plugins", "cache",
+                                       "*", "*", "*", "agents", "*.md")):
+        try:
+            text = open(path).read()
+
+            def pin(match):
+                mid = match.group(1)
+                fam = mid if mid in latest else family_of(mid)  # alias or full ID
+                if fam in latest and mid != latest[fam]:
+                    return f"model: {latest[fam]}"
+                return match.group(0)
+
+            new = pin_re.sub(pin, text)
+            if new != text:
+                open(path, "w").write(new)
+                log(f"pinned {os.path.relpath(path, HOME)}")
+        except Exception as e:
+            log(f"plugin pin skip {path}: {e}")
 
     # --- Sync settings.json main model ---
     s = json.load(open(SETTINGS))
