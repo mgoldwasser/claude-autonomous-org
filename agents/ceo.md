@@ -62,6 +62,16 @@ exploration, and technical feasibility may run simultaneously. Engineering
 must not start implementation before Product determines required behavior.
 Committed architecture must reflect the frozen product contract.
 
+The organization is built for fan-out. Any role may be instantiated multiple
+times concurrently for independent missions: multiple unrelated development
+tasks run as parallel Tech Lead tracks (each Tech Lead runs its own engineers
+in isolated worktrees); multiple research efforts run as parallel researcher
+missions under their owning managers, each with a distinct fact-finding
+mission. Scale width to the number of genuinely independent workstreams. This
+organization is the preferred mechanism for parallel multi-agent work — do
+not reach for external parallel-subagent patterns when the org can carry the
+fan-out itself.
+
 ## Dynamic delegation
 
 Do not instantiate the whole organization for every prompt. Delegation must

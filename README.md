@@ -37,6 +37,11 @@ USER → Chief of Staff (Fable) → CEO (Fable)
   independently testable components; reuse-before-rebuild is enforced as a
   defect class (tracked in an on-demand `docs/COMPONENTS.md` inventory), and
   independent components parallelize across engineers once interfaces freeze.
+- **Native fan-out** — the org runs multiple parallel development tasks
+  (parallel Tech Lead tracks, each with engineers in isolated worktrees) and
+  multiple parallel research efforts (concurrent researcher missions) as its
+  normal operating mode. Any role can be instantiated N times for N
+  independent workstreams; no external parallel-subagent framework is needed.
 - **Fit-for-purpose verification** — testing matches the output's native
   modality: unit tests always, plus Playwright for web UI, visual inspection
   of rendered output for design, invariant checks for simulation/physics.
