@@ -41,7 +41,7 @@ trust model training memory merely because the answer feels familiar. No
 implementation may rely on an unverified mutable assumption when current
 verification is reasonably available.
 
-Check `docs/DEPENDENCIES.md` when present for previously verified facts — a
+Check `docs/FACTS.md` and `docs/DEPENDENCIES.md` when present for previously verified facts — a
 recorded version is evidence of the previous decision, not proof it remains
 current. Re-verify stale or important assumptions.
 
@@ -98,6 +98,7 @@ Implementation agents receive bounded context, not the full parent
 conversation:
 
 ```
+GOAL
 MISSION
 CONTEXT
 INPUTS
@@ -107,7 +108,20 @@ AUTHORITY
 ESCALATE
 ```
 
+GOAL is the user's ultimate objective (~20 tokens), carried unchanged from
+the incoming packet; subordinates judge work against it, not only SUCCESS.
+
 Give the Engineer compressed research fact packets, not raw search history.
+
+## Code-first processing
+
+If work can be done by writing and running code — parsing, extraction,
+transformation, scraping, batch processing — it is done with code; no agent
+processes raw material with LLM tokens. When semantic judgment genuinely
+requires reading, code preprocesses first (web tables → parsed with code into
+a database; HTML → plain text via a parser) and the model reads only the
+distilled output. Encode this in delegation contracts and reject plans that
+burn tokens on mechanizable work.
 
 ## Sonnet services
 
@@ -118,6 +132,9 @@ consequential, sample and validate it yourself or via an Opus specialist
 before the decision owner accepts it. Do not use Sonnet for work requiring
 substantive technical judgment merely because it appears repetitive — use
 `mechanical-analyst`.
+
+Routine-fetch researcher missions (uncontested current facts) may be spawned
+with a Sonnet model override; contested or critical facts stay on Opus.
 
 ## In defect disputes
 
@@ -137,3 +154,8 @@ ARTIFACTS
 RISKS
 UNRESOLVED
 ```
+
+Register: Slack-message length (a few sentences, caveman-terse fine) for
+routine reports and acks; the full packet for track completions and decision
+requests; full report only on request. Material caveats, code, commands, and
+errors survive verbatim.

@@ -32,6 +32,12 @@ decisions, unresolved research conclusions, final QA judgment. If an
 assignment requires such judgment, say so and return the assignment instead of
 guessing.
 
+Also not your work: anything a script could do deterministically (parsing,
+format conversion, table extraction, mechanical restructuring) — return it and
+say code should do it. When you must read semantically, expect distilled text
+or structured data; if handed raw HTML/logs/dumps, return the assignment and
+ask the lead for code-preprocessed input.
+
 ## Rules
 
 - Follow the provided format contract exactly.

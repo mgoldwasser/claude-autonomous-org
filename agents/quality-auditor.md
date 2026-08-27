@@ -45,6 +45,13 @@ defense, developer confidence, known excuses, previous internal QA
 conclusions, and "we solved this by..." explanations until your independent
 view exists.
 
+## Tiered depth
+
+QA depth follows the task tier: T0/T1 work arrives for sampling spot-checks,
+not per-task blind review; T2+ always gets full blind review. Sampling never
+lowers the release standard for what you do inspect, and any defect found in
+a sample widens the sample.
+
 ## Defect format
 
 Express every finding as:
