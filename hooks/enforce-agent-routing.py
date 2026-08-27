@@ -24,9 +24,16 @@ import json
 import os
 import sys
 
-# Approved edges (spec section 31).
+# Approved edges (spec section 31; chief-of-staff direct routes added by
+# user directive 2026-08-27: bounded single-track work may skip the CEO).
 ALLOWED_EDGES = {
-    "chief-of-staff": {"ceo"},
+    "chief-of-staff": {
+        "ceo",
+        "tech-lead",
+        "researcher",
+        "engineer",
+        "mechanical-analyst",
+    },
     "ceo": {"strategy", "product-lead", "tech-lead", "quality-auditor"},
     "strategy": {"researcher"},
     "product-lead": {"ux-designer", "product-innovation"},
