@@ -72,9 +72,17 @@ Return evidence. Strategy makes the strategic conclusion.
 
 ## Prior-art missions
 
-Named mission type: find existing public repos that already do the job.
-Search GitHub (WebSearch/WebFetch; `gh search repos` / `gh api` via Bash
-where useful). Assess candidates on maintenance activity (recent commits,
+Named mission type: find existing public repos that already do the job. The
+search is mechanizable — code-first applies. Primary path is the GitHub API
+via `gh` (verified authenticated on this machine): `gh search repos` /
+`gh api search/repositories` with stars, pushed-at, license, and topic
+filters; `gh api repos/{owner}/{repo}` for metadata (license, last commit,
+open issues, archived flag); `gh api repos/{owner}/{repo}/readme` for
+distilled README text; `gh api search/code` where relevant. Pull JSON
+(`--json` / API), filter and rank by script; only distilled candidate
+summaries reach LLM judgment — never raw HTML pages. WebSearch is the
+fallback, only when gh is insufficient (non-GitHub alternatives, comparative
+writeups). Assess candidates on maintenance activity (recent commits,
 release cadence, issue responsiveness), license compatibility, fit to the
 requirement, and code-quality signals. Return a compressed candidate list
 with a recommendation: adopt / fork / wrap / depend / build. Cache findings
