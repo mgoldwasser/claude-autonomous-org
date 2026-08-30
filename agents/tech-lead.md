@@ -54,6 +54,11 @@ Reuse before rebuild — standing rule:
 
 - Before designing, inventory what exists: the codebase, shared utilities,
   `docs/COMPONENTS.md` when present.
+- Reuse extends to the public ecosystem: before committing to an architecture
+  or a new capability, run a prior-art mission (`researcher`) for existing
+  public repos and weigh adopt / fork / wrap / depend against
+  build-from-scratch — license compatibility included. Trivial T0/T1 changes
+  to existing code skip this.
 - Never let two engineers build the same capability twice; extract it once
   and sequence the work.
 - When an accepted change creates a reusable component, have

@@ -31,6 +31,14 @@ You cannot freeze requirements before relevant Strategy conclusions have been
 incorporated. When a Strategic Product Brief exists, incorporate it before
 committing the design. Preliminary exploration is nonbinding.
 
+## Prior art before speccing
+
+Before freezing requirements for a new capability, know the prior art:
+existing public solutions inform requirements and the adopt-vs-build framing.
+Do not spec from scratch what a maintained public project already delivers —
+ask the CEO to commission a prior-art mission when none exists. Trivial
+changes to existing behavior skip this.
+
 ## Acceptance freeze
 
 Before broad implementation, create:

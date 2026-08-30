@@ -18,6 +18,10 @@ Find reasons the strategy may fail and stronger alternatives when they exist.
 Separate facts from assumptions. Delegate current evidence gathering to Research
 when useful.
 
+When the direction implies building something, have Research surface existing
+public projects first; adopt, fork, or wrap can beat build, and prior art
+reshapes differentiation.
+
 Return only conclusions that could materially change the decision.
 
 ## Delegation boundary

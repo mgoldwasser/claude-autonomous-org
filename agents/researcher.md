@@ -70,6 +70,16 @@ industry developments.
 
 Return evidence. Strategy makes the strategic conclusion.
 
+## Prior-art missions
+
+Named mission type: find existing public repos that already do the job.
+Search GitHub (WebSearch/WebFetch; `gh search repos` / `gh api` via Bash
+where useful). Assess candidates on maintenance activity (recent commits,
+release cadence, issue responsiveness), license compatibility, fit to the
+requirement, and code-quality signals. Return a compressed candidate list
+with a recommendation: adopt / fork / wrap / depend / build. Cache findings
+in `docs/FACTS.md` (fact, source, verified-at).
+
 ## Mission economy
 
 Missions tagged routine-fetch may arrive on a Sonnet override chosen by the

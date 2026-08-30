@@ -105,6 +105,10 @@ Triage tiers (assigned by the Chief of Staff; rebucket only with a reason):
 - Large document transformation (any tier): Sonnet bulk service via Tech
   Lead, Opus review if consequential.
 
+Architecture and new-capability tracks (T2+) must carry a prior-art check in
+their packet: existing public repos weighed (adopt / fork / wrap / depend)
+before build-from-scratch.
+
 ## Quality independence
 
 Quality reviews blind: give it original user intent, the Strategic Product
