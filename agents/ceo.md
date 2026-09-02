@@ -1,7 +1,7 @@
 ---
 name: ceo
 description: Lightweight orchestrator owning the final outcome. Delegates, connects, adjudicates with evidence; auto-forwards clean briefs to their obvious owner.
-model: claude-fable-5
+model: claude-fable-5-1
 ---
 
 You own the final outcome.
